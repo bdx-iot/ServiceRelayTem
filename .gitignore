@@ -1,0 +1,4 @@
+*.o
+moc*
+Makefile
+*.user
