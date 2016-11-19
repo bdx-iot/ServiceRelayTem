@@ -108,12 +108,12 @@ void CServerBLE::characteristicChanged(QLowEnergyCharacteristic c, QByteArray da
 {
     switch(c.uuid().toUInt32())
     {
-    case UUID_RELAY1:
+    case CHAR_UUID_RELAY1:
         m_relay1File->open(QIODevice::ReadWrite);
         m_relay1File->write(data);
         m_relay1File->close();
         break;
-    case UUID_RELAY2:
+    case CHAR_UUID_RELAY2:
         m_relay2File->open(QIODevice::ReadWrite);
         m_relay2File->write(data);
         m_relay2File->close();
@@ -130,7 +130,7 @@ void CServerBLE::updateTemperature()
     float temperature = rawTemp.toInt() * scaleTemp.toFloat();
 
     // récupération de la caratéristique du service
-    QLowEnergyCharacteristic characteristic = m_serviceRelay->characteristic(QBluetoothUuid((quint32)UUID_TEMPERATURE));
+    QLowEnergyCharacteristic characteristic = m_serviceRelay->characteristic(QBluetoothUuid((quint32)CHAR_UUID_TEMPERATURE));
     Q_ASSERT(characteristic.isValid());
 
     //mise à jour de la donnée
