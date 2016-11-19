@@ -1,8 +1,9 @@
 #include "CServerBLE.h"
 
-#define UUID_RELAY1         0x2aa4
-#define UUID_RELAY2         0x2aa5
-#define UUID_TEMPERATURE    0x2aa6
+#define SERVICE_UUID                0x1820
+#define CHAR_UUID_RELAY1            0x2aa4
+#define CHAR_UUID_RELAY2            0x2aa5
+#define CHAR_UUID_TEMPERATURE       0x2aa6
 
 QByteArray readValueFromFile(QString filePath)
 {
@@ -36,10 +37,10 @@ CServerBLE::~CServerBLE()
 
 void CServerBLE::initServer()
 {
-    QBluetoothUuid serviceRelayUuid((quint32)0x1820);
-    QBluetoothUuid charRelay1Uuid((quint32)UUID_RELAY1);
-    QBluetoothUuid charRelay2Uuid((quint32)UUID_RELAY2);
-    QBluetoothUuid temperatureUuid((quint32)UUID_TEMPERATURE);
+    QBluetoothUuid serviceRelayUuid((quint32)SERVICE_UUID);
+    QBluetoothUuid charRelay1Uuid((quint32)CHAR_UUID_RELAY1);
+    QBluetoothUuid charRelay2Uuid((quint32)CHAR_UUID_RELAY2);
+    QBluetoothUuid temperatureUuid((quint32)CHAR_UUID_TEMPERATURE);
 
                                             //serveur
     m_advertisingData.setDiscoverability(QLowEnergyAdvertisingData::DiscoverabilityGeneral);  //Mode d'accessibilité
