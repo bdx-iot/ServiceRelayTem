@@ -22,8 +22,8 @@ QByteArray readValueFromFile(QString filePath)
 
 CServerBLE::CServerBLE()
 {
-    m_relay1File = new QFile("/dev/gpio/out_RL1");
-    m_relay2File = new QFile("/dev/gpio/out_RL2");
+    m_relay1File = new QFile("/dev/mikrobus/out_RL1");
+    m_relay2File = new QFile("/dev/mikrobus/out_RL2");
     m_timerTemperature = new QTimer;
     connect(m_timerTemperature, SIGNAL(timeout()), this, SLOT(updateTemperature()));
 }
